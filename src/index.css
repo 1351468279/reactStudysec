@@ -1,0 +1,384 @@
+/* Resets */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+/* 
+  为所有可见获得焦点的元素添加样式：
+  使用3像素虚线的#228bec蓝色轮廓，并且轮廓不偏移。
+  这样可以提升键盘导航的可访问性和可见性。
+*/
+*:focus-visible {
+  outline: 3px dashed #228bec;
+  outline-offset: 0;
+}
+/*
+  这段代码为 html 元素设置了字体相关的基础样式：
+  font: 62.5% / 1.15 sans-serif;
+
+  详细解释如下：
+  - font 是 CSS 的简写属性，这里设置了字体大小、行高和字体族。
+  - 62.5% 表示字体大小为浏览器默认字体大小的 62.5%，
+    通常浏览器默认字体大小是 16px，62.5% 就是 10px。
+    这样做的好处是方便后续使用 rem 单位进行尺寸换算（1rem = 10px）。
+  - / 1.15 表示行高为字体大小的 1.15 倍，提升文本的可读性。
+  - sans-serif 指定无衬线字体作为默认字体族，保证界面简洁现代。
+
+  总结：这行代码的目的是为了让 rem 单位更易于计算（1rem=10px），
+  并设置合适的行高和字体族，为整个页面的排版和可读性打下基础。
+*/
+html {
+  font: 62.5% / 1.15 sans-serif;
+}
+h1,
+h2 {
+  margin-bottom: 0;
+}
+ul {
+  list-style: none;
+  padding: 0;
+}   
+/*
+  这段 CSS 代码为所有 button 元素设置了基础的样式重置，具体解释如下：
+
+  - -moz-osx-font-smoothing: inherit;
+    让按钮在   上继承父元素的字体平滑设置，提升字体渲染效果。
+
+  - -webkit-font-smoothing: inherit;
+    让按钮在 Webkit 内核（如 Chrome、Safari）上继承父元素的字体平滑设置，提升字体渲染效果。
+
+  - appearance: none;
+    移除浏览器默认的按钮样式，使按钮外观更易于自定义。
+
+  - background: transparent;
+    设置按钮背景为透明，去除默认背景色。
+
+  - border: none;
+    移除按钮的默认边框。
+
+  - color: inherit;
+    按钮文字颜色继承自父元素，保证风格统一。
+
+  - font: inherit;
+    按钮字体样式（包括字体族、大小、粗细等）继承自父元素，避免与页面其他文本不一致。
+
+  - line-height: normal;
+    设置按钮的行高为默认值，防止不同浏览器下行高不一致。
+
+  - margin: 0;
+    移除按钮的默认外边距。
+
+  - overflow: visible;
+    设置内容溢出时可见，防止内容被裁剪。
+
+  - padding: 0;
+    移除按钮的默认内边距。
+
+  - width: auto;
+    按钮宽度自适应内容，不强制固定宽度。
+
+  总结：这段代码的作用是将按钮的样式重置为最基础的状态，去除浏览器自带的样式，方便后续自定义按钮的外观和交互效果，保证在不同浏览器和操作系统下表现一致。
+*/
+button {  
+  -moz-osx-font-smoothing: inherit;
+  -webkit-font-smoothing: inherit;
+  appearance: none;
+  background: transparent;
+  border: none;
+  color: inherit;
+  font: inherit;
+  line-height: normal;
+  margin: 0;
+  overflow: visible;
+  padding: 0;
+  width: auto;
+}
+button::-moz-focus-inner {
+  border: 0;
+}
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: inherit;
+  font-size: 100%;
+  line-height: 1.15;
+  margin: 0;
+}
+button,
+input {
+  overflow: visible;
+}
+input[type="text"] {
+  border-radius: 0;
+}
+body {
+  background-color: #f5f5f5;
+  color: #4d4d4d;
+  font:
+    1.6rem/1.25 Arial,
+    sans-serif;
+  margin: 0 auto;
+  max-width: 68rem;
+  width: 100%;
+}
+@media screen and (min-width: 620px) {
+  body {
+    font-size: 1.9rem;
+    line-height: 1.31579;
+  }
+}
+/* End resets */
+/* Global styles */
+.form-group > input[type="text"] {
+  display: inline-block;
+  margin-top: 0.4rem;
+}
+.btn {
+  border: 0.2rem solid #4d4d4d;
+  cursor: pointer;
+  padding: 0.8rem 1rem 0.7rem;
+  text-transform: capitalize;
+}
+.btn.toggle-btn {
+  border-color: #d3d3d3;
+  border-width: 1px;
+}
+.btn.toggle-btn[aria-pressed="true"] {
+  border-color: #4d4d4d;
+  text-decoration: underline;
+}
+.btn__danger {
+  background-color: #ca3c3c;
+  border-color: #bd2130;
+  color: #fff;
+}
+.btn__filter {
+  border-color: lightgrey;
+}
+.btn__primary {
+  background-color: #000;
+  color: #fff;
+}
+.btn-group {
+  display: flex;
+  justify-content: space-between;
+}
+.btn-group > * {
+  flex: 1 1 49%;
+}
+.btn-group > * + * {
+  margin-left: 0.8rem;
+}
+.label-wrapper {
+  flex: 0 0 100%; 
+  text-align: center;
+}
+.visually-hidden {
+  clip: rect(1px 1px 1px 1px);
+  clip: rect(1px, 1px, 1px, 1px);
+  height: 1px;
+  overflow: hidden;
+  position: absolute !important;
+  white-space: nowrap;
+  width: 1px;
+}
+[class*="stack"] > * {
+  margin-bottom: 0;
+  margin-top: 0;
+}
+/*
+  这段 CSS 代码的作用是为类名包含 "stack-small" 的元素下的所有直接子元素（除了第一个）设置顶部外边距（margin-top）。
+
+  具体解释如下：
+  - .stack-small > * + * 选择器的含义是：选中 .stack-small 的所有直接子元素中，紧跟在另一个直接子元素之后的元素（即不是第一个子元素的所有子元素）。
+  - margin-top: 1.25rem; 表示这些元素的顶部外边距为 1.25rem。
+
+  这样做的目的是：在 .stack-small 容器内的子元素之间添加垂直间距，使内容分隔更清晰，但不会影响第一个子元素的顶部间距，保证整体布局的整洁和一致性。
+*/
+.stack-small > * + * {
+  margin-top: 1.25rem;
+}
+.stack-large > * + * {
+  margin-top: 2.5rem;
+}
+@media screen and (min-width: 550px) {
+  .stack-small > * + * {
+    margin-top: 1.4rem;
+  }
+  .stack-large > * + * {
+    margin-top: 2.8rem;
+  }
+}
+.stack-exception {
+  margin-top: 1.2rem;
+}
+/* End global styles */
+/* General app styles */
+.todoapp {
+  background: #fff;
+  box-shadow:
+    0 2px 4px 0 rgb(0 0 0 / 20%),
+    0 2.5rem 5rem 0 rgb(0 0 0 / 10%);
+  margin: 2rem 0 4rem 0;
+  padding: 1rem;
+  position: relative;
+}
+@media screen and (min-width: 550px) {
+  .todoapp {
+    padding: 4rem;
+  }
+}
+.todoapp > * {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 50rem;
+}
+.todoapp > form {
+  max-width: 100%;
+}
+.todoapp > h1 {
+  display: block;
+  margin: 0;
+  margin-bottom: 1rem;
+  max-width: 100%;
+  text-align: center;
+}
+.label__lg {
+  line-height: 1.01567;
+  font-weight: 300;
+  margin-bottom: 1rem;
+  padding: 0.8rem;
+  text-align: center;
+}
+.input__lg {
+  border: 2px solid #000;
+  padding: 2rem;
+}
+.input__lg:focus-visible {
+  border-color: #4d4d4d;
+  box-shadow: inset 0 0 0 2px;
+}
+/**
+ * 这段 CSS 代码主要用于设置所有类名中包含“__lg”的元素的样式。
+ * 
+ * 1. [class*="__lg"] 选择器会选中所有类名中带有“__lg”字符串的元素。
+ *    - display: inline-block; 让这些元素以 inline-block 方式显示，既有块级元素的特性（可设置宽高），又不会独占一行。
+ *    - font-size: 1.9rem; 设置字体大小为 1.9 倍的根元素字体大小，通常用于较大的输入框或标签。
+ *    - width: 100%; 让这些元素的宽度占据其父容器的全部宽度。
+ * 
+ * 2. [class*="__lg"]:not(:last-child) 选择器会选中所有类名中带有“__lg”且不是同级最后一个的元素。
+ *    - margin-bottom: 1rem; 给这些元素底部添加 1rem 的外边距，用于元素之间的垂直间距，提升布局的美观性和可读性。
+ */
+[class*="__lg"] {
+  display: inline-block;
+  font-size: 1.9rem;
+  width: 100%;
+}
+[class*="__lg"]:not(:last-child) {
+  margin-bottom: 1rem;
+}
+@media screen and (min-width: 620px) {
+  [class*="__lg"] {
+    font-size: 2.4rem;
+  }
+}
+/* End general app styles */
+/* Todo item styles */
+.todo {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.todo > * {
+  flex: 0 0 100%;
+}
+.todo-text {
+  border: 2px solid #565656;
+  min-height: 4.4rem;
+  padding: 0.4rem 0.8rem;
+  width: 100%;
+}
+.todo-text:focus-visible {
+  box-shadow: inset 0 0 0 2px;
+}
+/* End todo item styles */
+/* Checkbox styles */
+.c-cb {
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+  clear: left;
+  display: block;
+  font-family: Arial, sans-serif;
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 1.25;
+  min-height: 44px;
+  padding-left: 40px;
+  position: relative;
+}
+.c-cb > label::before,
+.c-cb > input[type="checkbox"] {
+  box-sizing: border-box;
+  height: 44px;
+  left: -2px;
+  top: -2px;
+  width: 44px;
+}
+.c-cb > input[type="checkbox"] {
+  -webkit-font-smoothing: antialiased;
+  cursor: pointer;
+  margin: 0;
+  opacity: 0;
+  position: absolute;
+  z-index: 1;
+}
+.c-cb > label {
+  cursor: pointer;
+  display: inline-block;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  margin-bottom: 0;
+  padding: 8px 15px 5px;
+  touch-action: manipulation;
+}
+.c-cb > label::before {
+  background: transparent;
+  border: 2px solid currentcolor;
+  content: "";
+  position: absolute;
+}
+/*
+  这段 CSS 选择器 `.c-cb > input[type="checkbox"]:focus-visible + label::before` 的作用是：
+  - 当 `.c-cb` 容器下的 `input` 元素（类型为 checkbox）获得键盘可见焦点（即 :focus-visible 伪类生效）时，
+  - 紧跟在该 input 后面的 label 元素的 ::before 伪元素会被应用以下样式：
+    1. `border-width: 4px;` —— 设置边框宽度为 4 像素，使得 checkbox 的边框更粗，突出显示当前获得焦点的复选框。
+    2. `outline: 3px dashed #228bec;` —— 给该伪元素添加一个 3 像素宽的虚线轮廓，颜色为 #228bec（蓝色），进一步增强可访问性，方便用户通过键盘导航时看到当前聚焦的复选框。
+  这样做的目的是提升无障碍体验，让用户在使用键盘操作时能清楚地看到当前聚焦的复选框。
+*/
+.c-cb > input[type="checkbox"]:focus-visible + label::before {
+  border-width: 4px;
+  outline: 3px dashed #228bec;
+}
+.c-cb > label::after {
+  background: transparent;
+  border: solid;
+  border-width: 0 0 5px 5px;
+  border-top-color: transparent;
+  box-sizing: content-box;
+  content: "";
+  height: 7px;
+  left: 9px;
+  opacity: 0;
+  position: absolute;
+  top: 11px;
+  transform: rotate(-45deg);
+  width: 18px;
+}
+.c-cb > input[type="checkbox"]:checked + label::after {
+  opacity: 1;
+}
+/* End checkbox styles */
